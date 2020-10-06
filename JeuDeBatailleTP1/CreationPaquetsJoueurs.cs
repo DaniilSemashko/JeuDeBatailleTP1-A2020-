@@ -11,5 +11,6 @@ namespace JeuDeBatailleTP1
             j1.SelectionnerUnNom();
         }
 
+        p
     }
 }
