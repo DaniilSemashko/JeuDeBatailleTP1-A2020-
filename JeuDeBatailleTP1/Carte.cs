@@ -2,41 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-enum Figure { 
-
+public enum Figure
+{
     Coeurs,
     Carreaux,
-    Piques,
-    Trefles
-}
-
-enum Point { 
-    Deux,
-    Trois,
-    Quatre,
-    Cinq,
-    Six,
-    Sept,
-    Huit,
-    Neuf,
-    Dix,
-    Jack,
-    Reine,
-    Roi,
-    As
+    Trefles,
+    Piques
 }
 
 namespace JeuDeBatailleTP1
 {
-    class Carte
+    public class Carte
     {
-        public Figure figure;
-        public Point point;
-
-        public void AfficherCarte() 
-        {
-            Console.WriteLine("{0} de {1}", point, figure);
-        }
+     
+        public string AffichageNomCarteEnJeu { get; set; } //affiche le nom de la carte
+        public Figure Figure { get; set; } // definit la figure de l`enum figure pour la carte
+        public int Point { get; set; } // donne une valeur de 2 a 14 a la carte
+        
     }
 
 }

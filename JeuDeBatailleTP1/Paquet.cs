@@ -1,65 +1,83 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace JeuDeBatailleTP1
 {
-    class Paquet
+    public static class Paquet
     {
-        public List<Carte> CartesDansLePaquet;
-
-        /**Utiliser cette methode pur peupler un paquet de carte qui ne sont pas melange. 
-         Cette methode ne fait que creer un paquet de 52 cartes en ordre. **/
-        public void CreerUnPaquet()
+        public static Queue<Carte> GenererPaquetDeCartes()
         {
-
-            CartesDansLePaquet = new List<Carte>(52);
-            int place = 0;
-            for (int i = 0; i < 4; i++)
+            Queue<Carte> paquetDeCartes = new Queue<Carte>();
+            for (int i = 2; i <= 14; i++)
             {
-                for (int f = 0; i < 13; i++)
+                foreach (Figure figure in Enum.GetValues(typeof(Figure)))
                 {
-
-
-                    Carte carte = new Carte();
-                    CartesDansLePaquet.Add(carte);
-                    CartesDansLePaquet[place].figure = (Figure)i;
-                    CartesDansLePaquet[place].point = (Point)f;
-                    place++;
-                }
+                    paquetDeCartes.Enqueue(new Carte()
+                    {
+                        Figure = figure,
+                        Point = i,
+                        AffichageNomCarteEnJeu = ObtenirNom(i, figure)
+                    });
+                }  
             }
+            return EffectuerMelange(paquetDeCartes);
         }
 
-        private static Random hasardnum = new Random();
-
-        /** 
-         * Melange les cares de mnaniere aleatoire afin de melanger le paquet de carte qui a ete
-         * genere en ordre logique ou toutes les cartes se suivent
+        /**
+         * Cette methode a ete prise de https://jamesshinevar.com/2017/05/28/shuffle-a-list-c-fisher-yates-shuffle/
+         * Pour effectuer le melange de Fisher-Yates, la methode au complet a ete copie et colle du site web mentionne
+         * ci-dessus avec quelques modifications mineures pour etre conforme avec le nom des methodes presente dans mon projet
          */
-        public void MelangerPaquet()
+        public static Queue<Carte> EffectuerMelange(Queue<Carte> paquetDeCartes)
         {
-            Carte enattente = new Carte();
-            int NumeroAuHasard;
-
-            for (int i = 0; i < 52; i++)
+            List<Carte> listeDesCartes = paquetDeCartes.ToList();
+            Random numRandom = new Random();
+            for (int z = listeDesCartes.Count; z > 0; --z)
             {
-                NumeroAuHasard = hasardnum.Next(0, 51);
-                enattente = CartesDansLePaquet[i];
-                CartesDansLePaquet[i] = CartesDansLePaquet[NumeroAuHasard];
-                CartesDansLePaquet[NumeroAuHasard] = enattente;
+                int r = numRandom.Next(z + 1);
+                Carte carteEnAttente = listeDesCartes[z];
+                listeDesCartes[z] = listeDesCartes[r];
+                listeDesCartes[r] = carteEnAttente;
             }
-        }
-
-        public void RegarderPacquet() {
-
-            foreach (var carte in CartesDansLePaquet)
+            Queue<Carte> paquetDeCartesMelanges = new Queue<Carte>();
+            foreach (var carte in listeDesCartes) 
             {
-                carte.AfficherCarte();
-                
+                paquetDeCartesMelanges.Enqueue(carte);
             }
-
+            return paquetDeCartesMelanges;
         }
-
-        
+        /**
+         * Permet d`obtenir un nom raccourci pour chaque 
+         * carte qui est jouee pour pouvoir faire des modifications graphiques
+         * par la suite lors de l`affichage
+         */
+        public static string ObtenirNom(int valeur, Figure figure)
+        {
+            string AffichageDesPointes = "";
+            if (valeur >= 2 && valeur <= 10)
+            {
+                AffichageDesPointes = valeur.ToString();
+            }
+            else if (valeur == 11)
+            {
+                AffichageDesPointes = "J";
+            }
+            else if (valeur == 12)
+            {
+                AffichageDesPointes = "Q";
+            }
+            else if (valeur == 13)
+            {
+                AffichageDesPointes = "K";
+            }
+            else if (valeur == 14) 
+            {
+                AffichageDesPointes = "A";
+            }
+            return AffichageDesPointes + " de " + Enum.GetName(typeof(Figure), figure)[0];
+        }
     }
+
 }
