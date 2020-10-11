@@ -7,8 +7,8 @@ namespace JeuDeBatailleTP1
 {
     public class Joueurs
     {
-        public string NomJoueur { get; set; }
-        public Queue<Carte> PaquetDeCartes { get; set; }
+        public string NomJoueur { get; set; } // Valeur qui identifie le nom du joueur
+        public Queue<Carte> PaquetDeCartes { get; set; } // Valeu qui identifie le paquet de cartes joue dans la partie
 
 
         /** Constructeur vide pour un joueur de la partie afin d`y 

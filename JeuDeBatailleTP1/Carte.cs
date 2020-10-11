@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+/**
+ * Enumeration qui contient les 4 figures dans un jeu de carte utilisee pour generer 
+ * le paquet de carte et chaque carte
+ */
 public enum Figure
 {
     Coeurs,

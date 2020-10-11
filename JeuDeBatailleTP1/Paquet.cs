@@ -7,6 +7,10 @@ namespace JeuDeBatailleTP1
 {
     public static class Paquet
     {
+        /**
+         * La methode suivante est utilisee pour generer le paquet de cartes initial avec les valeurs de 2 a 14 et les 4 Figures
+         * etant coeurs, piques, trefles, carreaux qui sont identifies dans l`enum publique de la classe Carte.Cs
+         */
         public static Queue<Carte> GenererPaquetDeCartes()
         {
             Queue<Carte> paquetDeCartes = new Queue<Carte>();
@@ -49,9 +53,15 @@ namespace JeuDeBatailleTP1
             return paquetDeCartesMelanges;
         }
         /**
+         * End of copyright section
+         */
+
+
+        /**
          * Permet d`obtenir un nom raccourci pour chaque 
          * carte qui est jouee pour pouvoir faire des modifications graphiques
-         * par la suite lors de l`affichage
+         * par la suite lors de l`affichage les format d`affichage apres
+         * Obtenir nom doivent ressembler a 10 de Pique, As de trefle etc.
          */
         public static string ObtenirNom(int valeur, Figure figure)
         {
@@ -62,19 +72,19 @@ namespace JeuDeBatailleTP1
             }
             else if (valeur == 11)
             {
-                AffichageDesPointes = "J";
+                AffichageDesPointes = "Valet";
             }
             else if (valeur == 12)
             {
-                AffichageDesPointes = "Q";
+                AffichageDesPointes = "Reine";
             }
             else if (valeur == 13)
             {
-                AffichageDesPointes = "K";
+                AffichageDesPointes = "Roi";
             }
             else if (valeur == 14) 
             {
-                AffichageDesPointes = "A";
+                AffichageDesPointes = "AS";
             }
             return AffichageDesPointes + " de " + Enum.GetName(typeof(Figure), figure)[0];
         }
