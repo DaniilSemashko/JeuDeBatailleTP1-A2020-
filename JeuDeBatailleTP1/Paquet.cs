@@ -13,20 +13,20 @@ namespace JeuDeBatailleTP1
          */
         public static Queue<Carte> GenererPaquetDeCartes()
         {
-            Queue<Carte> paquetDeCartes = new Queue<Carte>();
+            Queue<Carte> cartes = new Queue<Carte>();
             for (int i = 2; i <= 14; i++)
             {
                 foreach (Figure figure in Enum.GetValues(typeof(Figure)))
                 {
-                    paquetDeCartes.Enqueue(new Carte()
+                    cartes.Enqueue(new Carte()
                     {
                         Figure = figure,
                         Point = i,
                         AffichageNomCarteEnJeu = ObtenirNom(i, figure)
                     });
-                }  
+                }
             }
-            return EffectuerMelange(paquetDeCartes);
+            return EffectuerMelange(cartes);
         }
 
         /**
@@ -34,11 +34,11 @@ namespace JeuDeBatailleTP1
          * Pour effectuer le melange de Fisher-Yates, la methode au complet a ete copie et colle du site web mentionne
          * ci-dessus avec quelques modifications mineures pour etre conforme avec le nom des methodes presente dans mon projet
          */
-        public static Queue<Carte> EffectuerMelange(Queue<Carte> paquetDeCartes)
+        private static Queue<Carte> EffectuerMelange(Queue<Carte> paquetDeCartes)
         {
             List<Carte> listeDesCartes = paquetDeCartes.ToList();
-            Random numRandom = new Random();
-            for (int z = listeDesCartes.Count; z > 0; --z)
+            Random numRandom = new Random(DateTime.Now.Millisecond);
+            for (int z = listeDesCartes.Count - 1; z > 0; --z)
             {
                 int r = numRandom.Next(z + 1);
                 Carte carteEnAttente = listeDesCartes[z];
@@ -46,7 +46,7 @@ namespace JeuDeBatailleTP1
                 listeDesCartes[r] = carteEnAttente;
             }
             Queue<Carte> paquetDeCartesMelanges = new Queue<Carte>();
-            foreach (var carte in listeDesCartes) 
+            foreach (var carte in listeDesCartes)
             {
                 paquetDeCartesMelanges.Enqueue(carte);
             }
@@ -63,7 +63,7 @@ namespace JeuDeBatailleTP1
          * par la suite lors de l`affichage les format d`affichage apres
          * Obtenir nom doivent ressembler a 10 de Pique, As de trefle etc.
          */
-        public static string ObtenirNom(int valeur, Figure figure)
+        private static string ObtenirNom(int valeur, Figure figure)
         {
             string AffichageDesPointes = "";
             if (valeur >= 2 && valeur <= 10)
@@ -82,12 +82,13 @@ namespace JeuDeBatailleTP1
             {
                 AffichageDesPointes = "Roi";
             }
-            else if (valeur == 14) 
+            else if (valeur == 14)
             {
                 AffichageDesPointes = "AS";
             }
-            return AffichageDesPointes + " de " + Enum.GetName(typeof(Figure), figure)[0];
+            return AffichageDesPointes + " de " + Enum.GetName(typeof(Figure), figure);
         }
-    }
+
+    }   
 
 }

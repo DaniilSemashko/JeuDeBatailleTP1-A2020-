@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 
@@ -9,10 +10,10 @@ using System.Text;
  */
 public enum Figure
 {
-    Coeurs,
-    Carreaux,
-    Trefles,
-    Piques
+     Coeurs,
+     Carreaux,
+     Trefles,
+     Piques
 }
 
 namespace JeuDeBatailleTP1
