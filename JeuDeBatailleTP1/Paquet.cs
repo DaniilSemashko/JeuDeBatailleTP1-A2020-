@@ -63,7 +63,7 @@ namespace JeuDeBatailleTP1
          * par la suite lors de l`affichage les format d`affichage apres
          * Obtenir nom doivent ressembler a 10 de Pique, As de trefle etc.
          */
-        private static string ObtenirNom(int valeur, Figure figure)
+        public static string ObtenirNom(int valeur, Figure figure)
         {
             string AffichageDesPointes = "";
             if (valeur >= 2 && valeur <= 10)

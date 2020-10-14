@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuDeBatailleTP1", "JeuDeBatailleTP1\JeuDeBatailleTP1.csproj", "{14A798F7-7A9E-4790-8113-601F1745D59D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuDeBatailleTP1.UnitTests", "JeuDeBatailleTP1.UnitTests\JeuDeBatailleTP1.UnitTests.csproj", "{D12DFEA4-1548-40C2-81AD-22A6858F9C8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuDeBatailleTest", "JeuDeBatailleTest\JeuDeBatailleTest.csproj", "{617EDC93-E9F3-44D6-A69E-DA8FEFDEF358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{14A798F7-7A9E-4790-8113-601F1745D59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A798F7-7A9E-4790-8113-601F1745D59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14A798F7-7A9E-4790-8113-601F1745D59D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D12DFEA4-1548-40C2-81AD-22A6858F9C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D12DFEA4-1548-40C2-81AD-22A6858F9C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D12DFEA4-1548-40C2-81AD-22A6858F9C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D12DFEA4-1548-40C2-81AD-22A6858F9C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617EDC93-E9F3-44D6-A69E-DA8FEFDEF358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617EDC93-E9F3-44D6-A69E-DA8FEFDEF358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617EDC93-E9F3-44D6-A69E-DA8FEFDEF358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617EDC93-E9F3-44D6-A69E-DA8FEFDEF358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,13 +33,14 @@ namespace JeuDeBatailleTP1
         {
             if (!j1.PaquetDeCartes.Any()) // cas ou le j1 n`a plus de cartes dans le paquet
             {
-                Console.WriteLine(" Bravo " + j2.NomJoueur + " vous avez gagne, puisque le paquet de cartes de: " + j1.NomJoueur + " est termine");
+                Console.WriteLine("\n==================== F I N  D E  P A R T I E ====================");
+                Console.WriteLine("\n\nBravo " + j2.NomJoueur + " vous avez gagne, puisque le paquet de cartes de " + j1.NomJoueur + " est termine");
                 return true;
             }
             else if (!j2.PaquetDeCartes.Any()) //cas ou le j2 n'a plus de cartes dans le paquet
             {
-                Console.WriteLine(" Bravo " + j1.NomJoueur + " vous avez gagne, puisque le paquet de cartes de " + j2.NomJoueur + " est termine");
-
+                Console.WriteLine("\n==================== F I N  D E  P A R T I E ====================");
+                Console.WriteLine("\n\nBravo " + j1.NomJoueur + " vous avez gagne, puisque le paquet de cartes de " + j2.NomJoueur + " est termine");
                 return true;
             }
             return false; //si les conditions ne sont pas atteintes la partie continue

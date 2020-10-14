@@ -3,11 +3,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace JeuDeBatailleTP1.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CarteTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AffichageNomCarteEnJeuTest()
         {
+            Carte carte 
         }
     }
 }

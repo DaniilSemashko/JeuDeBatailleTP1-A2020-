@@ -5,7 +5,7 @@ using System.Text;
 namespace JeuDeBatailleTP1
 {
     
-    public static class Extensions
+    public static class AjoutNouvelleCarte
     {
         public static void Enqueue(this Queue<Carte> cartes, Queue<Carte> nouvellesCartes)
         {
